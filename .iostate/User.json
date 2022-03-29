@@ -1,0 +1,170 @@
+{
+
+		"NAME": "user",
+		"HANDLER": "demo.application.controller.UserController",
+		"NETWORKGRP": "public",
+		"VALUES": {
+			"firstName": {
+				"type": "String",
+				"description": "",
+				"mockData": "null_fname"
+			},
+			"passwordExpired": {
+				"type": "boolean",
+				"description": "",
+				"mockData": "false"
+			},
+			"accountExpired": {
+				"type": "boolean",
+				"description": "",
+				"mockData": "false"
+			},
+			"oauthProvider": {
+				"type": "String",
+				"description": "",
+				"mockData": ""
+			},
+			"username": {
+				"type": "String",
+				"description": "",
+				"mockData": "test"
+			},
+			"accountLocked": {
+				"type": "boolean",
+				"description": "",
+				"mockData": "false"
+			},
+			"password": {
+				"type": "String",
+				"description": "",
+				"mockData": "password"
+			},
+			"lastName": {
+				"type": "String",
+				"description": "",
+				"mockData": "null_lname"
+			},
+			"oauthId": {
+				"type": "String",
+				"description": "",
+				"mockData": ""
+			},
+			"enabled": {
+				"type": "boolean",
+				"description": "",
+				"mockData": "true"
+			},
+			"avatarUrl": {
+				"type": "String",
+				"description": "",
+				"mockData": ""
+			},
+			"email": {
+				"type": "String",
+				"description": "",
+				"mockData": "test@test.com"
+			},
+			"id": {
+				"key": "PKEY",
+				"type": "Long",
+				"description": "",
+				"mockData": "112"
+			},
+			"version": {
+				"type": "Long",
+				"description": "",
+				"mockData": "0"
+			}
+		},
+		"CURRENTSTABLE": "1",
+		"VERSION": {
+			"1": {
+				"DEFAULTACTION": "list",
+				"_DEPRECATED": "10/10/2050",
+				"URI": {
+					"show": {
+						"METHOD": "GET",
+						"DESCRIPTION": "Description for show",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": [],
+							"ROLE_ADMIN": ["id"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id", "version", "username", "email", "enabled", "accountExpired"]
+						}
+					},
+					"getByUsername": {
+						"METHOD": "GET",
+						"DESCRIPTION": "Description for getByUsername",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["username"]
+						},
+						"RESPONSE": {
+							"permitAll": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+						}
+					},
+					"update": {
+						"METHOD": "PUT",
+						"HANDLER": "demo.application.controller.ArchController",
+						"DESCRIPTION": "Description for update",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id"]
+						}
+					},
+					"create": {
+						"METHOD": "POST",
+						"DESCRIPTION": "Description for create",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id"]
+						}
+					},
+					"list": {
+						"METHOD": "GET",
+						"DESCRIPTION": "Description for list",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"ROLE_ADMIN": []
+						},
+						"RESPONSE": {
+							"ROLE_ADMIN": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+						}
+					},
+					"delete": {
+						"METHOD": "DELETE",
+						"DESCRIPTION": "Description for delete",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["id"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id"]
+						}
+					}
+
+				}
+			}
+		}
+
+}
