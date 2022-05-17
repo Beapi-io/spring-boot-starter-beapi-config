@@ -93,7 +93,8 @@
 							"ROLE_ADMIN": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "username", "email", "enabled", "accountExpired"]
+							"permitAll": ["id", "version", "username", "email", "enabled", "accountExpired"],
+							"ROLE_ADMIN": ["firstName","lastName"]
 						}
 					},
 					"getByUsername": {
@@ -146,7 +147,7 @@
 							"ROLE_ADMIN": []
 						},
 						"RESPONSE": {
-							"ROLE_ADMIN": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+							"ROLE_ADMIN": ["id", "version", "username", "email", "enabled", "accountExpired"]
 						}
 					},
 					"delete": {
