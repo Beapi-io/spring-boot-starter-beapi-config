@@ -1,0 +1,77 @@
+{
+
+		"NAME": "branch",
+		"HANDLER": "demo.application.controller.BranchController",
+		"NETWORKGRP": "public",
+		"VALUES": {
+			"name": {
+				"type": "String",
+				"description": "",
+				"mockData": "test"
+			},
+			"id": {
+				"key": "PKEY",
+				"type": "Long",
+				"description": "",
+				"mockData": "112"
+			},
+			"version": {
+				"type": "Long",
+				"description": "",
+				"mockData": "0"
+			}
+		},
+		"CURRENTSTABLE": "1",
+		"VERSION": {
+			"1": {
+				"DEFAULTACTION": "show",
+				"_DEPRECATED": "10/10/2050",
+				"URI": {
+					"show": {
+						"METHOD": "GET",
+						"DESCRIPTION": "Description for show",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"],
+							"CHAIN": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"ROLE_ADMIN": ["id"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id","version","name"]
+						}
+					},
+					"create": {
+						"METHOD": "POST",
+						"DESCRIPTION": "Description for create",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"],
+							"CHAIN": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["name"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id","version","name"]
+						}
+					},
+					"delete": {
+						"METHOD": "DELETE",
+						"DESCRIPTION": "Description for delete",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"],
+							"CHAIN": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["id"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id"]
+						}
+					}
+
+				}
+			}
+		}
+
+}
