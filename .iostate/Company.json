@@ -2,7 +2,7 @@
 
 		"NAME": "company",
 		"HANDLER": "demo.application.controller.CompanyController",
-		"NETWORKGRP": "public",
+		"NETWORKGRP": "private",
 		"VALUES": {
 			"name": {
 				"type": "String",

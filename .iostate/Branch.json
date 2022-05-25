@@ -2,7 +2,7 @@
 
 		"NAME": "branch",
 		"HANDLER": "demo.application.controller.BranchController",
-		"NETWORKGRP": "public",
+		"NETWORKGRP": "private",
 		"VALUES": {
 			"name": {
 				"type": "String",
