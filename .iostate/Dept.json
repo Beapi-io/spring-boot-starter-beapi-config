@@ -19,7 +19,14 @@
 				"type": "Long",
 				"description": "",
 				"mockData": "0"
-			}
+			},
+			"branchId": {
+				"key": "FKEY",
+				"reference": "Branch",
+				"type": "Long",
+				"description": "ID for Branch",
+				"mockData": ""
+			},
 		},
 		"CURRENTSTABLE": "1",
 		"VERSION": {
@@ -49,7 +56,7 @@
 							"CHAIN": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["name"]
+							"permitAll": ["name","branchId"]
 						},
 						"RESPONSE": {
 							"permitAll": ["id","version","name"]

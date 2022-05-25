@@ -19,7 +19,14 @@
 				"type": "Long",
 				"description": "",
 				"mockData": "0"
-			}
+			},
+			"companyId": {
+				"key": "FKEY",
+				"reference": "Company",
+				"type": "Long",
+				"description": "ID for Company",
+				"mockData": ""
+			},
 		},
 		"CURRENTSTABLE": "1",
 		"VERSION": {
@@ -49,7 +56,7 @@
 							"CHAIN": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["name"]
+							"permitAll": ["name","companyId"]
 						},
 						"RESPONSE": {
 							"permitAll": ["id","version","name"]
