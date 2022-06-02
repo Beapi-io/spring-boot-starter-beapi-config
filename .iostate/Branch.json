@@ -45,7 +45,7 @@
 							"ROLE_ADMIN": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name"]
+							"permitAll": ["id","version","name","companyId"]
 						}
 					},
 					"create": {
