@@ -1,0 +1,35 @@
+db:
+    datasource:
+        jmxexport: true
+        driverclassname: "com.mysql.cj.jdbc.Driver"
+        username: "username"
+        password: "password"
+        url: "jdbc:mysql://localhost:3306/boot"
+        dbCreate: "create-drop"
+        properties:
+            pooled: true
+            jmxEnabled: true
+            initialSize: 4
+            maxActive: 50
+            minIdle: 5
+            maxIdle: 25
+            maxWait: 10000
+            maxAge: 600000
+            timeBetweenEvictionRunsMillis: 5000
+            minEvictableIdleTimeMillis: 60000
+            validationQuery: "SELECT 1"
+            validationQueryTimeout: 3
+            validationInterval: 15000
+            testOnBorrow: true
+            testWhileIdle: false
+            testOnReturn: false
+            jdbcInterceptors: "ConnectionState"
+            defaultTransactionIsolation: 2 # "java.sql.Connection.TRANSACTION_READ_COMMITTED"
+        hibernate:
+            dialect:  "org.hibernate.dialect.MySQL5Dialect"
+            show_sql: false
+            cache:
+                use_second_level_cache: true
+                use_query_cache: true
+                provider_class: 'org.hibernate.cache.EhCacheProvider'
+                region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'
