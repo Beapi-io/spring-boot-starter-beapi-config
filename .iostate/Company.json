@@ -1,7 +1,6 @@
 {
-
+	"IOSTATE": {
 		"NAME": "company",
-		"HANDLER": "demo.application.controller.CompanyController",
 		"NETWORKGRP": "private",
 		"VALUES": {
 			"name": {
@@ -38,7 +37,7 @@
 							"ROLE_ADMIN": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name"]
+							"permitAll": ["id", "version", "name"]
 						}
 					},
 					"create": {
@@ -52,7 +51,21 @@
 							"permitAll": ["name"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name"]
+							"permitAll": ["id", "version", "name"]
+						}
+					},
+					"update": {
+						"METHOD": "PUT",
+						"DESCRIPTION": "Description for update",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"],
+							"CHAIN": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["id", "name"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id", "version", "name"]
 						}
 					},
 					"delete": {
@@ -73,5 +86,6 @@
 				}
 			}
 		}
+	}
 
 }

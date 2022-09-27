@@ -1,7 +1,6 @@
 {
-
+	"IOSTATE": {
 		"NAME": "dept",
-		"HANDLER": "demo.application.controller.DeptController",
 		"NETWORKGRP": "private",
 		"VALUES": {
 			"name": {
@@ -26,7 +25,7 @@
 				"type": "Long",
 				"description": "ID for Branch",
 				"mockData": ""
-			},
+			}
 		},
 		"CURRENTSTABLE": "1",
 		"VERSION": {
@@ -45,7 +44,7 @@
 							"ROLE_ADMIN": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name","branchId"]
+							"permitAll": ["id", "version", "name", "branchId"]
 						}
 					},
 					"create": {
@@ -56,10 +55,24 @@
 							"CHAIN": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["name","branchId"]
+							"permitAll": ["name", "branchId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name"]
+							"permitAll": ["id", "version", "name"]
+						}
+					},
+					"update": {
+						"METHOD": "PUT",
+						"DESCRIPTION": "Description for update",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"],
+							"CHAIN": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["id", "name"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id", "version", "name", "branchId"]
 						}
 					},
 					"delete": {
@@ -80,5 +93,6 @@
 				}
 			}
 		}
+	}
 
 }

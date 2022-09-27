@@ -1,7 +1,6 @@
 {
-
+	"IOSTATE": {
 		"NAME": "user",
-		"HANDLER": "demo.application.controller.UserController",
 		"NETWORKGRP": "public",
 		"VALUES": {
 			"firstName": {
@@ -79,7 +78,7 @@
 		"CURRENTSTABLE": "1",
 		"VERSION": {
 			"1": {
-				"DEFAULTACTION": "list",
+				"DEFAULTACTION": "show",
 				"_DEPRECATED": "10/10/2050",
 				"URI": {
 					"show": {
@@ -112,7 +111,6 @@
 					},
 					"update": {
 						"METHOD": "PUT",
-						"HANDLER": "demo.application.controller.ArchController",
 						"DESCRIPTION": "Description for update",
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"]
@@ -167,5 +165,6 @@
 				}
 			}
 		}
+	}
 
 }

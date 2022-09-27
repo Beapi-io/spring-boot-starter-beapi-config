@@ -1,7 +1,6 @@
 {
-
+	"IOSTATE": {
 		"NAME": "branch",
-		"HANDLER": "demo.application.controller.BranchController",
 		"NETWORKGRP": "private",
 		"VALUES": {
 			"name": {
@@ -26,7 +25,7 @@
 				"type": "Long",
 				"description": "ID for Company",
 				"mockData": ""
-			},
+			}
 		},
 		"CURRENTSTABLE": "1",
 		"VERSION": {
@@ -45,7 +44,7 @@
 							"ROLE_ADMIN": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name","companyId"]
+							"permitAll": ["id", "version", "name", "companyId"]
 						}
 					},
 					"create": {
@@ -56,10 +55,10 @@
 							"CHAIN": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["name","companyId"]
+							"permitAll": ["name", "companyId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id","version","name"]
+							"permitAll": ["id", "version", "name"]
 						}
 					},
 					"delete": {
@@ -80,5 +79,5 @@
 				}
 			}
 		}
-
+	}
 }
