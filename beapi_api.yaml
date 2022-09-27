@@ -1,12 +1,12 @@
 api:
     name: api
     attempts: 5
-    procCores: 4
+    procCores: 8
     documentationUrl: 'http://orubel.github.io/Beapi-API-Framework/'
     views: ['admin','apidoc','api','login','logout']
     reserveduris: ['/authenticate','/register','/error','/login','/logout']
     nonmappedEndpoint: ['jwtAuthentication','beapiError']
-    apiServer: ['http://localhost:8080']
+    apiServer: 'http://localhost:8080'
     apichainLimit: 3
     postcrement: false
     chainingEnabled: true
@@ -28,7 +28,6 @@ api:
     security:
         superuserRole: 'ROLE_ADMIN'
         userRole: 'ROLE_USER'
-        anonRole: 'ROLE_ANONYMOUS'
         networkGroups: ['open','public','private']
         networkRoles: {'open':['ROLE_ADMIN','ROLE_ANONYMOUS','ROLE_USER'],'public':['ROLE_ADMIN','ROLE_USER'],'private':['ROLE_ADMIN']}
         corsNetworkGroups: { 
@@ -38,5 +37,16 @@ api:
         }
         corsIncludeEnvironments: ['development','test','production']
         corsExcludeEnvironments: []
+    bootstrap:
+        superUser: {
+            login: 'admin',
+            password: '@6m!nP@s5',
+            email: 'email@yourdomain.com'
+        }
+        testUser: {
+            login: 'test',
+            password: 't35tP@s5',
+            email: 'test@yourdomain.com',
+        }
 
 
