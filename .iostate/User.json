@@ -5,73 +5,59 @@
 		"VALUES": {
 			"firstName": {
 				"type": "String",
-				"description": "",
 				"mockData": "null_fname"
 			},
 			"passwordExpired": {
 				"type": "boolean",
-				"description": "",
 				"mockData": "false"
 			},
 			"accountExpired": {
 				"type": "boolean",
-				"description": "",
 				"mockData": "false"
 			},
 			"oauthProvider": {
 				"type": "String",
-				"description": "",
 				"mockData": ""
 			},
 			"username": {
 				"type": "String",
-				"description": "",
 				"mockData": "test"
 			},
 			"accountLocked": {
 				"type": "boolean",
-				"description": "",
 				"mockData": "false"
 			},
 			"password": {
 				"type": "String",
-				"description": "",
 				"mockData": "password"
 			},
 			"lastName": {
 				"type": "String",
-				"description": "",
 				"mockData": "null_lname"
 			},
 			"oauthId": {
 				"type": "String",
-				"description": "",
 				"mockData": ""
 			},
 			"enabled": {
 				"type": "boolean",
-				"description": "",
 				"mockData": "true"
 			},
 			"avatarUrl": {
 				"type": "String",
-				"description": "",
 				"mockData": ""
 			},
 			"email": {
 				"type": "String",
-				"description": "",
 				"mockData": "test@test.com"
 			},
 			"id": {
 				"key": "PKEY",
 				"type": "Long",
-				"description": "",
 				"mockData": "112"
 			},
 			"version": {
 				"type": "Long",
-				"description": "",
 				"mockData": "0"
 			}
 		},
