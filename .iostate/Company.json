@@ -1,79 +1,64 @@
 {
 	"IOSTATE": {
 		"NAME": "company",
-		"NETWORKGRP": "private",
-		"VALUES": {
-			"name": {
-				"type": "String",
-				"description": "",
-				"mockData": "test"
-			},
+		"NETWORKGRP": "public",
+		"VALUES": { 
 			"id": {
 				"key": "PKEY",
 				"type": "Long",
 				"description": "",
-				"mockData": "112"
+				"mockData": "",
+				"constraints": {"order":1},
 			},
 			"version": {
 				"type": "Long",
 				"description": "",
-				"mockData": "0"
-			}
+				"mockData": "",
+				"constraints": {"order":2,"isNullable":false, "isUnique":false},
+			},
+			"name": {
+				"type": "String",
+				"description": "",
+				"mockData": "",
+				"constraints": {"order":3,"isNullable":false, "isUnique":false},
+			},
 		},
 		"CURRENTSTABLE": "1",
 		"VERSION": {
 			"1": {
-				"DEFAULTACTION": "show",
-				"_DEPRECATED": "10/10/2050",
-				"URI": {
+				"DEFAULTACTION":"list",
+				"URI": { 
 					"show": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for show",
 						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"],
-							"CHAIN": ["ROLE_ADMIN"]
+							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"ROLE_ADMIN": ["id"]
+							"permitAll": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name"]
-						}
-					},
-					"create": {
-						"METHOD": "POST",
-						"DESCRIPTION": "Description for create",
-						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"],
-							"CHAIN": ["ROLE_ADMIN"]
-						},
-						"REQUEST": {
-							"permitAll": ["name"]
-						},
-						"RESPONSE": {
-							"permitAll": ["id", "version", "name"]
+							"permitAll": ["id","version","name"]
 						}
 					},
 					"update": {
 						"METHOD": "PUT",
 						"DESCRIPTION": "Description for update",
 						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"],
-							"CHAIN": ["ROLE_ADMIN"]
+							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["id", "name"]
+							"permitAll": ["id","version","name"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name"]
+							"permitAll": ["id"]
 						}
 					},
 					"delete": {
 						"METHOD": "DELETE",
 						"DESCRIPTION": "Description for delete",
 						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"],
-							"CHAIN": ["ROLE_ADMIN"]
+							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
 							"permitAll": ["id"]
@@ -81,11 +66,22 @@
 						"RESPONSE": {
 							"permitAll": ["id"]
 						}
-					}
-
+					},
+					"create": {
+						"METHOD": "POST",
+						"DESCRIPTION": "Description for create",
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"permitAll": ["id","version","name"]
+						},
+						"RESPONSE": {
+							"permitAll": ["id"]
+						}
+					},
 				}
 			}
 		}
 	}
-
 }

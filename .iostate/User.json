@@ -17,7 +17,7 @@
 			},
 			"oauthProvider": {
 				"type": "String",
-				"mockData": ""
+				"mockData": "http:///test.com"
 			},
 			"username": {
 				"type": "String",
@@ -37,7 +37,7 @@
 			},
 			"oauthId": {
 				"type": "String",
-				"mockData": ""
+				"mockData": "1"
 			},
 			"enabled": {
 				"type": "boolean",
@@ -45,7 +45,7 @@
 			},
 			"avatarUrl": {
 				"type": "String",
-				"mockData": ""
+				"mockData": "http://test.com"
 			},
 			"email": {
 				"type": "String",
@@ -102,10 +102,10 @@
 							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+							"ROLE_ADMIN": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"]
+							"ROLE_ADMIN": ["id"]
 						}
 					},
 					"create": {

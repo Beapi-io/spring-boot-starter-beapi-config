@@ -1,0 +1,126 @@
+{
+	"IOSTATE": {
+	    "NAME":"hook",
+	    "NETWORKGRP": "public",
+	    "VALUES": {
+		"id": {
+                    "key": "PKEY",
+		    "type": "Long",
+		    "mockData":"1"
+		},
+		"version": {
+		    "type": "Long",
+		    "mockData":"0"
+		},
+		"user": {
+                    "key": "FKEY",
+		    "type": "Long",
+		    "mockData":"1"
+		},
+		"name": {
+		    "type": "String",
+		    "mockData":"mockHook"
+		},
+		"url": {
+		    "type": "String",
+		    "mockData":"127.0.0.1:80/test"
+		},
+		"format": {
+		    "type": "String",
+		    "mockData":"JSON"
+		},
+		"service": {
+		    "type": "String",
+		    "mockData":"mockService"
+		},
+		"authentication": {
+		    "type": "String",
+		    "mockData":"23978ywe0fdi8h309u4ju0309je3r90f"
+		}
+	    },
+		"CURRENTSTABLE": "1",
+		"VERSION": {
+			"1": {
+				"DEFAULTACTION":"list",
+				"URI": {
+					"list": {
+					     	"METHOD":"GET",
+					    	"DESCRIPTION":"List Hook",
+					    	"ROLES": {},
+						"REQUEST": {
+						    "permitAll":[]
+						},
+						"RESPONSE": {
+							"permitAll":["id","version","user","name","url","format","service","authentication"]
+						}
+					},
+					"show": {
+						"METHOD":"GET",
+						"DESCRIPTION":"Show Hooks",
+					    	"ROLES": {
+					    	    "BATCH":["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+						    "permitAll":["id"]
+						},
+						"RESPONSE": {
+							"permitAll":["id","version","user","name","url","format","service","authentication"]
+						}
+					},
+					"create":{
+						"METHOD":"PUT",
+						"DESCRIPTION":"Create Hook",
+					    	"ROLES": {
+					    	    "BATCH":["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+						    "permitAll":["name","url","format","service","authentication"]
+						},
+						"RESPONSE": {
+							"permitAll":["id","version"]
+						}
+					},
+					"update": {
+						"METHOD":"POST",
+						"DESCRIPTION":"Update Hook",
+					    	"ROLES": {
+					    	    "BATCH":["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+						    "permitAll":["id","version","name","url","format","service","authentication"]
+						},
+						"RESPONSE": {
+						    "permitAll":["id","version"]
+						}
+					},
+					"delete":{
+						"METHOD":"DELETE",
+						"DESCRIPTION":"Delete Hook",
+					    	"ROLES": {
+					    	    "BATCH":["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+						    "permitAll":["id"]
+						},
+						"RESPONSE": {
+						    "permitAll":["id"]
+						}
+					},
+					"reset":{
+						"METHOD":"GET",
+						"DESCRIPTION":"Reset Hook attempts",
+					    	"ROLES": {
+					    	    "BATCH":["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+						    "permitAll":["id"]
+						},
+						"RESPONSE": {
+						    "permitAll":["id"]
+						}
+					}
+				}
+			}
+		}
+	}
+}

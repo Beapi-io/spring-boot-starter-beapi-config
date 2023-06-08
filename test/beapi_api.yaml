@@ -12,14 +12,16 @@ api:
     chainingEnabled: true
     batchingEnabled: true
     encoding: UTF-8
-    iostateDir: '.boot/.iostate'
+    iostateDir: '.beapi/.iostate'
     serverType: master
+    protocol: http
     autoTest: false
     parseValidRequestParams: false
+    supportedFormats: ['JSON','XML']
     throttle:
         active: false
-        rateLimit: {'ROLE_USER':1000,'ROLE_ADMIN':10000}
-        dataLimit: {'ROLE_USER':1000000,'ROLE_ADMIN':1000000}
+        rateLimit: {'ROLE_USER':1000}
+        dataLimit: {'ROLE_USER':1000000}
         # in seconds (3600 = 60 minutes)
         expires: 3600
     webhook:
@@ -28,6 +30,7 @@ api:
     security:
         superuserRole: 'ROLE_ADMIN'
         userRole: 'ROLE_USER'
+        testRole: 'ROLE_USER'
         networkGroups: ['open','public','private']
         networkRoles: {'open':['ROLE_ADMIN','ROLE_ANONYMOUS','ROLE_USER'],'public':['ROLE_ADMIN','ROLE_USER'],'private':['ROLE_ADMIN']}
         corsNetworkGroups: { 
