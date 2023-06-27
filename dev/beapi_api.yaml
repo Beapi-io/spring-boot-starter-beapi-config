@@ -6,13 +6,14 @@ api:
     views: ['admin','apidoc','api','login','logout']
     reserveduris: ['/authenticate','/register','/error','/login','/logout']
     publicEndpoint: ['jwtAuthentication','beapiError']
+    staticEndpoint: ['apidoc','connector','properties']
     apiServer: 'http://localhost:8080'
     apichainLimit: 3
     postcrement: false
     chainingEnabled: true
     batchingEnabled: true
     encoding: UTF-8
-    iostateDir: '.beapi/.iostate'
+    iostateDir: '.boot/.iostate'
     serverType: master
     protocol: http
     autoTest: false

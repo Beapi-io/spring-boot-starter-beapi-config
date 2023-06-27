@@ -33,7 +33,7 @@
 		    "type": "String",
 		    "mockData":"mockService"
 		},
-		"authentication": {
+		"authorization": {
 		    "type": "String",
 		    "mockData":"23978ywe0fdi8h309u4ju0309je3r90f"
 		}
@@ -51,7 +51,7 @@
 						    "permitAll":[]
 						},
 						"RESPONSE": {
-							"permitAll":["id","version","user","name","url","format","service","authentication"]
+							"permitAll":["id","version","user","name","url","format","service","authorization"]
 						}
 					},
 					"show": {
@@ -64,7 +64,7 @@
 						    "permitAll":["id"]
 						},
 						"RESPONSE": {
-							"permitAll":["id","version","user","name","url","format","service","authentication"]
+							"permitAll":["id","version","user","name","url","format","service","authorization"]
 						}
 					},
 					"create":{
@@ -74,7 +74,7 @@
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-						    "permitAll":["name","url","format","service","authentication"]
+						    "permitAll":["name","url","format","service","authorization"]
 						},
 						"RESPONSE": {
 							"permitAll":["id","version"]
@@ -87,7 +87,7 @@
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-						    "permitAll":["id","version","name","url","format","service","authentication"]
+						    "permitAll":["id","version","name","url","format","service","authorization"]
 						},
 						"RESPONSE": {
 						    "permitAll":["id","version"]
