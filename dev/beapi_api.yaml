@@ -1,5 +1,4 @@
 api:
-    name: api
     attempts: 5
     procCores: 8
     reserveduris: ['/authenticate','/register','/error','/login','/logout']
