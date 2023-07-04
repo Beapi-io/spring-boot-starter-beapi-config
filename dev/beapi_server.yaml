@@ -1,44 +1,29 @@
 server:
-    tomcat:
-        backgroundProcessorDelay: 5
-        maxThreads: 400
-        minSpareThreads: 100
-        maxConnections: 100000
-        uriEncoding: UTF-8
-        compression: off
-        compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
-        jvmArgs:
-            -'-Xms1536m'
-            -'-Xmx2048m'
-            -'-XX:PermSize=256m'
-            -'-XX:MaxPermSize=512m'
-            -'-XX:MaxNewSize=256m'
-            -'-XX:NewSize=256m',
-            -'-XX:+CMSClassUnloadingEnabled'
-            -'-XX:+UseConcMarkSweepGC'
-            -'-XX:+CMSIncrementalMode'
-            -'-XX:+CMSIncrementalPacing'
-            -'-XX:CMSIncrementalDutyCycle=10'
-            -'-XX:+UseParNewGC'
-            -'-XX:MaxGCPauseMillis=200'
-            -'-XX:MaxGCMinorPauseMillis=50'
-            -'-XX:SurvivorRatio=128'
-            -'-XX:MaxTenuringThreshold=0'
-            -'-server'
-            -'-noverify'
-            -'-Xshare:off'
-            -'-Djava.net.preferIPv4Stack=true'
-            -'-XX:+EliminateLocks'
-            -'-XX:+ExplicitGCInvokesConcurrent'
-            -'-XX:+UseBiasedLocking'
-            -'-XX:+UseTLAB'
-    application:
-        context-path: ''
-        serverurl: "http://test.nosegrind.net:8080"
-        port: 8080
-        ssl:
-            enabled: false
-        useForwardHeaders: true
-    quartz:
-        pluginEnabled: false
+    nano:
+        tomcat:
+            backgroundProcessorDelay: 5
+            maxThreads: 70
+            minSpareThreads: 20
+            maxConnections: 1000
+            uriEncoding: UTF-8
+            compression: off
+            compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
+    medium:
+        tomcat:
+            backgroundProcessorDelay: 5
+            maxThreads: 200
+            minSpareThreads: 50
+            maxConnections: 3000
+            uriEncoding: UTF-8
+            compression: off
+            compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
+    large:
+        tomcat:
+            backgroundProcessorDelay: 5
+            maxThreads: 400
+            minSpareThreads: 100
+            maxConnections: 6000
+            uriEncoding: UTF-8
+            compression: off
+            compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
 

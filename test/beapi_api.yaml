@@ -8,7 +8,7 @@ api:
     postcrement: false
     iostateDir: '.boot/.iostate'
     serverType: master
-    supportedFormats: ['JSON','XML']
+    configType: large
     throttle:
         active: false
         rateLimit: {'ROLE_USER':1000}
