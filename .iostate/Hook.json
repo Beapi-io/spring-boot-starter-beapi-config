@@ -36,8 +36,14 @@
 		"authorization": {
 		    "type": "String",
 		    "mockData":"23978ywe0fdi8h309u4ju0309je3r90f"
+		},
+		"hookServices": {
+		    "type": "List",
+		    "description": "List of endpoints available to be hooked to by user role",
+		    "mockData": "*"
 		}
 	    },
+
 		"CURRENTSTABLE": "1",
 		"VERSION": {
 			"1": {
@@ -51,7 +57,7 @@
 						    "permitAll":[]
 						},
 						"RESPONSE": {
-							"permitAll":["id","version","user","name","url","format","service","authorization"]
+							"permitAll":["id","version","user","format","service","authorization"]
 						}
 					},
 					"show": {
@@ -118,6 +124,17 @@
 						"RESPONSE": {
 						    "permitAll":["id"]
 						}
+					},
+					"getHookServices":{
+					    "METHOD":"GET",
+					    "DESCRIPTION":"get list of hook services",
+					    "ROLES": {},
+					    "REQUEST": {
+						"permitAll":[]
+					    },
+					    "RESPONSE": {
+						"permitAll":["hookServices"]
+					    }
 					}
 				}
 			}
