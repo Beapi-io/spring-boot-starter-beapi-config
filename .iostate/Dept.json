@@ -58,7 +58,7 @@
 							"permitAll": ["name", "branchId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name"]
+							"permitAll": ["id", "version", "name"],
 							"ROLE_ADMIN":["branchId"]
 						}
 					},
@@ -73,7 +73,7 @@
 							"permitAll": ["id", "name"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"]
+							"permitAll": ["id"],
 							"ROLE_ADMIN":["version","name","branchId"]
 						}
 					},
@@ -88,7 +88,7 @@
 							"permitAll": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"]
+							"permitAll": ["id"],
 							"ROLE_ADMIN":["version","name","branchId"]
 						}
 					}
