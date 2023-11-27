@@ -58,7 +58,8 @@
 							"permitAll": ["name", "companyId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name"]
+							"permitAll": ["id"]
+							"ROLE_ADMIN":["version","name","companyId"]
 						}
 					},
 					"delete": {
@@ -73,6 +74,7 @@
 						},
 						"RESPONSE": {
 							"permitAll": ["id"]
+							"ROLE_ADMIN":["version","name","companyId"]
 						}
 					}
 
