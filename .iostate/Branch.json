@@ -58,7 +58,7 @@
 							"permitAll": ["name", "companyId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"]
+							"permitAll": ["id"],
 							"ROLE_ADMIN":["version","name","companyId"]
 						}
 					},
@@ -73,7 +73,7 @@
 							"permitAll": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"]
+							"permitAll": ["id"],
 							"ROLE_ADMIN":["version","name","companyId"]
 						}
 					}
