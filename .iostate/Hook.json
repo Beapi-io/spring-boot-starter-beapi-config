@@ -6,44 +6,46 @@
 		"id": {
                     "key": "PKEY",
 		    "type": "Long",
+		    "description":"ID for Hook",
 		    "mockData":"1"
 		},
 		"version": {
 		    "type": "Long",
+		    "description":"Version for Updating Hook",
 		    "mockData":"0"
 		},
 		"user": {
                     "key": "FKEY",
 		    "type": "Long",
+		    "description":"User relationship",
 		    "mockData":"1"
 		},
 		"name": {
 		    "type": "String",
+		    "description":"Name of Hook",
 		    "mockData":"mockHook"
 		},
 		"url": {
 		    "type": "String",
+		    "description":"Subscribers Receiving URL for Hook",
 		    "mockData":"127.0.0.1:80/test"
 		},
 		"format": {
 		    "type": "String",
+		    "description":"JSON/XML",
 		    "mockData":"JSON"
 		},
 		"service": {
 		    "type": "String",
-		    "mockData":"mockService"
+		    "description":"Api Service being Subscribed to",
+		    "mockData":"mockEndpoint"
 		},
-		"authorization": {
+		"authentication": {
 		    "type": "String",
+		    "description":"Token type",
 		    "mockData":"23978ywe0fdi8h309u4ju0309je3r90f"
-		},
-		"hookServices": {
-		    "type": "List",
-		    "description": "List of endpoints available to be hooked to by user role",
-		    "mockData": "*"
 		}
 	    },
-
 		"CURRENTSTABLE": "1",
 		"VERSION": {
 			"1": {
@@ -52,17 +54,31 @@
 					"list": {
 					     	"METHOD":"GET",
 					    	"DESCRIPTION":"List Hook",
-					    	"ROLES": {},
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
+					    	"ROLES": {
+					    	    "BATCH":["ROLE_ADMIN"]
+						},
 						"REQUEST": {
 						    "permitAll":[]
 						},
 						"RESPONSE": {
-							"permitAll":["id","version","user","format","service","authorization"]
+							"permitAll":["id","version","user","name","url","format","service","authentication"]
 						}
 					},
 					"show": {
 						"METHOD":"GET",
 						"DESCRIPTION":"Show Hooks",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
@@ -76,11 +92,17 @@
 					"create":{
 						"METHOD":"PUT",
 						"DESCRIPTION":"Create Hook",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-						    "permitAll":["name","url","format","service","authorization"]
+						    "permitAll":["name","url","format","service","authentication"]
 						},
 						"RESPONSE": {
 							"permitAll":["id","version"]
@@ -89,11 +111,17 @@
 					"update": {
 						"METHOD":"POST",
 						"DESCRIPTION":"Update Hook",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						     "ROLE_ANONYMOUS": "20",
+						     "ROLE_USER": "100",
+						     "ROLE_ADMIN" : "*"
+						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-						    "permitAll":["id","version","name","url","format","service","authorization"]
+						    "permitAll":["id","version","name","url","format","service","authentication"]
 						},
 						"RESPONSE": {
 						    "permitAll":["id","version"]
@@ -102,6 +130,12 @@
 					"delete":{
 						"METHOD":"DELETE",
 						"DESCRIPTION":"Delete Hook",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						     "ROLE_ANONYMOUS": "20",
+						     "ROLE_USER": "100",
+						     "ROLE_ADMIN" : "*"
+						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
@@ -115,6 +149,12 @@
 					"reset":{
 						"METHOD":"GET",
 						"DESCRIPTION":"Reset Hook attempts",
+						"UPDATECACHE": false,
+						"RATELIMIT": {
+						     "ROLE_ANONYMOUS": "20",
+						     "ROLE_USER": "100",
+						     "ROLE_ADMIN" : "*"
+						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},

@@ -2,14 +2,14 @@ db:
     datasource:
         jmxexport: true
         driverclassname: "com.mysql.cj.jdbc.Driver"
-        username: "root"
-        password: "Ch335eB0y"
+        username: "db_login"
+        password: "db_password"
         url: "jdbc:mysql://localhost:3306/boot?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false"
         dbCreate: "create-drop"
         properties:
             pooled: true
             jmxEnabled: true
-            initialSize: 5
+            initialSize: 4
             maxActive: 50
             minIdle: 5
             maxIdle: 25
@@ -21,7 +21,7 @@ db:
             validationQueryTimeout: 3
             validationInterval: 15000
             testOnBorrow: true
-            testWhileIdle: true
+            testWhileIdle: false
             testOnReturn: false
             jdbcInterceptors: "ConnectionState"
             defaultTransactionIsolation: 2 # "java.sql.Connection.TRANSACTION_READ_COMMITTED"
@@ -29,7 +29,7 @@ db:
             dialect:  "org.hibernate.dialect.MySQL5Dialect"
             show_sql: false
             cache:
-                use_second_level_cache: false
-                use_query_cache: false
+                use_second_level_cache: true
+                use_query_cache: true
                 provider_class: 'org.hibernate.cache.EhCacheProvider'
                 region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'

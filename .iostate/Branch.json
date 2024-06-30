@@ -21,10 +21,10 @@
 			},
 			"companyId": {
 				"key": "FKEY",
-				"reference": "company",
+				"reference": "Company",
 				"type": "Long",
 				"description": "ID for Company",
-				"mockData": ""
+				"mockData": "36"
 			}
 		},
 		"CURRENTSTABLE": "1",
@@ -36,6 +36,12 @@
 					"show": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for show",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -50,6 +56,12 @@
 					"create": {
 						"METHOD": "POST",
 						"DESCRIPTION": "Description for create",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -58,13 +70,18 @@
 							"permitAll": ["name", "companyId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"],
-							"ROLE_ADMIN":["version","name","companyId"]
+							"permitAll": ["id", "version", "name"]
 						}
 					},
 					"delete": {
 						"METHOD": "DELETE",
 						"DESCRIPTION": "Description for delete",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -73,8 +90,7 @@
 							"permitAll": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"],
-							"ROLE_ADMIN":["version","name","companyId"]
+							"permitAll": ["id"]
 						}
 					}
 

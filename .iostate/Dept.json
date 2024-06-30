@@ -21,10 +21,10 @@
 			},
 			"branchId": {
 				"key": "FKEY",
-				"reference": "branch",
+				"reference": "Branch",
 				"type": "Long",
 				"description": "ID for Branch",
-				"mockData": ""
+				"mockData": "36"
 			}
 		},
 		"CURRENTSTABLE": "1",
@@ -36,6 +36,12 @@
 					"show": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for show",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -50,6 +56,12 @@
 					"create": {
 						"METHOD": "POST",
 						"DESCRIPTION": "Description for create",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -58,13 +70,18 @@
 							"permitAll": ["name", "branchId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name"],
-							"ROLE_ADMIN":["branchId"]
+							"permitAll": ["id", "version", "name"]
 						}
 					},
 					"update": {
 						"METHOD": "PUT",
 						"DESCRIPTION": "Description for update",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -73,13 +90,18 @@
 							"permitAll": ["id", "name"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"],
-							"ROLE_ADMIN":["version","name","branchId"]
+							"permitAll": ["id", "version", "name", "branchId"]
 						}
 					},
 					"delete": {
 						"METHOD": "DELETE",
 						"DESCRIPTION": "Description for delete",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -88,8 +110,7 @@
 							"permitAll": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"],
-							"ROLE_ADMIN":["version","name","branchId"]
+							"permitAll": ["id"]
 						}
 					}
 
