@@ -1,3 +1,4 @@
+
 -- MySQL dump 10.19  Distrib 10.2.44-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: boot

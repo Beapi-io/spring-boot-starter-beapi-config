@@ -70,7 +70,8 @@
 							"permitAll": ["name", "branchId"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name"]
+							"permitAll": ["id", "version", "name"],
+							"ROLE_ADMIN":["branchId"]
 						}
 					},
 					"update": {
@@ -90,7 +91,8 @@
 							"permitAll": ["id", "name"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id", "version", "name", "branchId"]
+							"permitAll": ["id"],
+							"ROLE_ADMIN":["version","name","branchId"]
 						}
 					},
 					"delete": {
@@ -110,7 +112,8 @@
 							"permitAll": ["id"]
 						},
 						"RESPONSE": {
-							"permitAll": ["id"]
+							"permitAll": ["id"],
+							"ROLE_ADMIN":["version","name","branchId"]
 						}
 					}
 
