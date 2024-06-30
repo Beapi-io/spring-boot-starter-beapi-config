@@ -164,6 +164,17 @@
 						"RESPONSE": {
 						    "permitAll":["id"]
 						}
+					},
+					"getHookServices":{
+					    "METHOD":"GET",
+					    "DESCRIPTION":"get list of hook services",
+					    "ROLES": {},
+					    "REQUEST": {
+						"permitAll":[]
+					    },
+					    "RESPONSE": {
+						"permitAll":["hookServices"]
+					    }
 					}
 				}
 			}
