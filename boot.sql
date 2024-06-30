@@ -1,3 +1,4 @@
+
 -- MySQL dump 10.19  Distrib 10.2.44-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: boot
@@ -62,7 +63,7 @@ CREATE TABLE `authority` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `authority` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=800651 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=812360 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +80,7 @@ CREATE TABLE `branch` (
   `company_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `company_id` (`company_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2066 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4985 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,7 @@ CREATE TABLE `company` (
   `version` bigint(20) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2222 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=5214 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +112,7 @@ CREATE TABLE `dept` (
   `branch_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `branch_id` (`branch_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2067 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4983 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +136,7 @@ CREATE TABLE `hook` (
   `format` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKaihuikmldahp68gmealxg88n5` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=354 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=368 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,6 +156,21 @@ CREATE TABLE `hook_role` (
   PRIMARY KEY (`id`),
   KEY `FK4c4vis9cjei2l6c7rklveugxm` (`hook_id`),
   KEY `FK8l9jmkpllw3899fik0unk6h5g` (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `test`
+--
+
+DROP TABLE IF EXISTS `test`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `test` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -185,9 +201,10 @@ CREATE TABLE `user` (
   `throttle_lock` tinyint(1) DEFAULT NULL,
   `current_limit` int(11) DEFAULT NULL,
   `current_content_length` int(11) DEFAULT NULL,
+  `registration_verification_code` varchar(65) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_fwmwi44u55bo4rvwsv0cln012` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +221,7 @@ CREATE TABLE `user_authority` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `authority_id` (`authority_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,4 +253,4 @@ CREATE TABLE `user_ip` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-26  6:41:18
+-- Dump completed on 2024-06-30 10:23:22

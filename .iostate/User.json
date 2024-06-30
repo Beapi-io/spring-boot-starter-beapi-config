@@ -17,7 +17,7 @@
 			},
 			"oauthProvider": {
 				"type": "String",
-				"mockData": "http:///test.com"
+				"mockData": "http://test.com"
 			},
 			"username": {
 				"type": "String",
@@ -70,6 +70,12 @@
 					"show": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for show",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"]
 						},
@@ -82,61 +88,73 @@
 							"ROLE_ADMIN": ["firstName","lastName"]
 						}
 					},
-					"showById": {
-						"METHOD": "GET",
-						"DESCRIPTION": "Description for show",
-						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"]
-						},
-						"REQUEST": {
-							"ROLE_ADMIN": ["id"]
-						},
-						"RESPONSE": {
-							"ROLE_ADMIN": ["id", "version", "username", "email", "enabled", "accountExpired","firstName","lastName"]
-						}
-					},
 					"getByUsername": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for getByUsername",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"permitAll": ["username"]
+							"ROLE_ADMIN": ["username"]
 						},
 						"RESPONSE": {
-							"permitAll": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+							"permitAll": ["firstName", "passwordExpired", "accountExpired", "username", "accountLocked", "password", "lastName", "enabled", "email", "id", "version"]
 						}
 					},
-					"update": {
+					"updatePassword": {
 						"METHOD": "PUT",
 						"DESCRIPTION": "Description for update",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"ROLE_ADMIN": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
-						},
-						"RESPONSE": {
-							"ROLE_ADMIN": ["id"]
-						}
-					},
-					"create": {
-						"METHOD": "POST",
-						"DESCRIPTION": "Description for create",
-						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"]
-						},
-						"REQUEST": {
-							"permitAll": ["firstName", "passwordExpired", "accountExpired", "oauthProvider", "username", "accountLocked", "password", "lastName", "oauthId", "enabled", "avatarUrl", "email", "id", "version"]
+							"permitAll": ["password"],
+                                                        "ROLE_ADMIN": ["id"]
 						},
 						"RESPONSE": {
 							"permitAll": ["id"]
 						}
 					},
+					"create": {
+						"METHOD": "POST",
+						"DESCRIPTION": "Description for create",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
+						"ROLES": {
+							"BATCH": ["ROLE_ADMIN"]
+						},
+						"REQUEST": {
+							"ROLE_ADMIN": ["firstName", "username", "password", "lastName", "email"]
+						},
+						"RESPONSE": {
+							"ROLE_ADMIN": ["id"]
+						}
+					},
 					"list": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for list",
+						"UPDATECACHE": true,
+						"RATELIMIT": {
+						      	"ROLE_ANONYMOUS": "20",
+						      	"ROLE_USER": "100",
+						      	"ROLE_ADMIN" : "*"
+						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"]
 						},
@@ -145,19 +163,6 @@
 						},
 						"RESPONSE": {
 							"ROLE_ADMIN": ["id", "version", "username", "email", "enabled", "accountExpired"]
-						}
-					},
-					"delete": {
-						"METHOD": "DELETE",
-						"DESCRIPTION": "Description for delete",
-						"ROLES": {
-							"BATCH": ["ROLE_ADMIN"]
-						},
-						"REQUEST": {
-							"permitAll": ["id"]
-						},
-						"RESPONSE": {
-							"permitAll": ["id"]
 						}
 					}
 
