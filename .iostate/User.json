@@ -101,7 +101,8 @@
 							"BATCH": ["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-							"ROLE_ADMIN": ["username"]
+							"permitAll": []
+                                                        "ROLE_ADMIN": ["username"]
 						},
 						"RESPONSE": {
 							"permitAll": ["firstName", "passwordExpired", "accountExpired", "username", "accountLocked", "password", "lastName", "enabled", "email", "id", "version"]
