@@ -1,19 +1,28 @@
 server:
-    tomcat:
+    nano:
         backgroundProcessorDelay: 5
-        maxThreads: 400
-        minSpareThreads: 100
-        maxConnections: 100000
+        maxThreads: 75
+        minSpareThreads: 25
+        maxConnections: 1000
         uriEncoding: UTF-8
         compression: off
         compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
-    application:
-        context-path: ''
-        serverURL: "http://yoursite.com:8080"
-        port: 8080
-        ssl:
-            enabled: false
-        useForwardHeaders: true
-    quartz:
-        pluginEnabled: false
+    medium:
+        backgroundProcessorDelay: 5
+        maxThreads: 105
+        minSpareThreads: 35
+        maxConnections: 1400
+        uriEncoding: UTF-8
+        compression: off
+        compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
+    large:
+        backgroundProcessorDelay: 5
+        maxThreads: 135
+        minSpareThreads: 45
+        maxConnections: 1800
+        uriEncoding: UTF-8
+        compression: off
+        compressableMimeTypes: application/json,text/json,application/xml,text/xml,text/plain
+
+
 

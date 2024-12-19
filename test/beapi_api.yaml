@@ -1,47 +1,49 @@
 api:
-    name: api
     attempts: 5
     procCores: 8
-    documentationUrl: 'http://orubel.github.io/Beapi-API-Framework/'
-    views: ['admin','apidoc','api','login','logout']
-    reserveduris: ['/authenticate','/register','/error','/login','/logout']
-    publicEndpoint: ['jwtAuthentication','beapiError']
+    reserveduris: ['/authenticate','/register','/error','/logout','/validate','/validateResetPassword','/resetPassword','/forgotPassword']
     apiServer: 'http://localhost:8080'
     apichainLimit: 3
     postcrement: false
-    chainingEnabled: true
-    batchingEnabled: true
-    encoding: UTF-8
-    iostateDir: '.beapi/.iostate'
-    staticEndpoint: ['apidoc','connector','properties']
+    iostateDir: '.boot/.iostate'
     serverType: master
-    autoTest: false
-    parseValidRequestParams: false
-    supportedFormats: ['JSON','XML']
+    configType: large
     throttle:
         active: false
         rateLimit: {'ROLE_USER':1000}
         dataLimit: {'ROLE_USER':1000000}
-        # in seconds (3600 = 60 minutes)
-        expires: 3600
+        # 60000=10m
+        staleSession: 60000
     webhook:
         active: false
-        services: ['iostate']
     security:
-        superuserRole: 'ROLE_ADMIN'
-        userRole: 'ROLE_USER'
-        anonRole: 'ROLE_ANONYMOUS'
-        networkGroups: ['open','public','private']
         networkRoles: {'open':['ROLE_ADMIN','ROLE_ANONYMOUS','ROLE_USER'],'public':['ROLE_ADMIN','ROLE_USER'],'private':['ROLE_ADMIN']}
-        corsWhiteList: ['http://localhost','http://localhost:8080','http://127.0.0.1','http://test.nosegrind.net','http://test.nosegrind.net:8080']
+        corsWhiteList: ['http://localhost','http://localhost:80','http://127.0.0.1','http://test.nosegrind.net']
+    mail:
+        host: 'smtp.sendgrid.net'
+        port: 587
+        username: 'apikey'
+        password: "your_token"
+        fromAddress: 'nospam@yoursite.com'
+        senderName: 'beapi.io'
+        smtpAuth: true
+        smtpStarttlsEnable: true
+        testemail: 'youremail@yoursite.com'
+    cookie:
+        cookieName: "beapiSession"
+        cookieMaxAge: -1
     bootstrap:
         superUser: {
             login: 'admin',
-            password: '@6m!nP@s5',
+            password: 'password',
             email: 'email@yourdomain.com'
         }
         testUser: {
             login: 'test',
-            password: 't35tP@s5',
+            password: 'password',
             email: 'test@yourdomain.com',
         }
+    callback:
+        validation: "/validate"
+        forgotPassword: "http://localhost:80/reset_password.html"
+        resetPassword: "http://localhost:80/reset_password.html"

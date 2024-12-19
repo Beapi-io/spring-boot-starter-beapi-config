@@ -3,16 +3,16 @@ cache:
         diskExpiryThreadIntervalSeconds: 120
         maxElementsInMemory: 10000
         maxElementsOnDisk: 10000
-        maxEntriesLocalHeap: 10000
+        maxEntriesLocalHeap: 5000
         maxEntriesLocalDisk: 10000
-        memoryStoreEvictionPolicy: FIFO
+        memoryStoreEvictionPolicy: LRU
     hook:
         diskExpiryThreadIntervalSeconds: -1
         maxElementsInMemory: 1000
         maxElementsOnDisk: 100000
         maxEntriesLocalHeap: 1
         maxEntriesLocalDisk: 100000
-        memoryStoreEvictionPolicy: FIFO
+        memoryStoreEvictionPolicy: LRU
     throttle:
         diskExpiryThreadIntervalSeconds: 120
         maxEntriesLocalHeap: 1000
@@ -22,8 +22,8 @@ cache:
         memoryStoreEvictionPolicy: LRU
     trace:
         diskExpiryThreadIntervalSeconds: 30
-        maxEntriesLocalHeap: 1000
-        maxEntriesLocalDisk: 500
+        maxEntriesLocalHeap: 100
+        maxEntriesLocalDisk: 5000
         timeToLiveSeconds: 0
         timeToIdleSeconds: 30
         memoryStoreEvictionPolicy: LRU

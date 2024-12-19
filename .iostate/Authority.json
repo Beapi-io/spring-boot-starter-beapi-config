@@ -24,12 +24,6 @@
 					"create": {
 						"METHOD": "POST",
 						"DESCRIPTION": "Create new Role",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"HOOK": ["ROLE_ADMIN"]
@@ -44,12 +38,6 @@
 					"list": {
 						"METHOD": "GET",
 						"DESCRIPTION": "List all Event Types",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"HOOK": ["ROLE_ADMIN"]

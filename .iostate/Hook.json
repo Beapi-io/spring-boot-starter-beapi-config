@@ -6,46 +6,44 @@
 		"id": {
                     "key": "PKEY",
 		    "type": "Long",
-		    "description":"ID for Hook",
 		    "mockData":"1"
 		},
 		"version": {
 		    "type": "Long",
-		    "description":"Version for Updating Hook",
 		    "mockData":"0"
 		},
 		"user": {
                     "key": "FKEY",
 		    "type": "Long",
-		    "description":"User relationship",
 		    "mockData":"1"
 		},
 		"name": {
 		    "type": "String",
-		    "description":"Name of Hook",
 		    "mockData":"mockHook"
 		},
 		"url": {
 		    "type": "String",
-		    "description":"Subscribers Receiving URL for Hook",
 		    "mockData":"127.0.0.1:80/test"
 		},
 		"format": {
 		    "type": "String",
-		    "description":"JSON/XML",
 		    "mockData":"JSON"
 		},
 		"service": {
 		    "type": "String",
-		    "description":"Api Service being Subscribed to",
-		    "mockData":"mockEndpoint"
+		    "mockData":"mockService"
 		},
-		"authentication": {
+		"authorization": {
 		    "type": "String",
-		    "description":"Token type",
 		    "mockData":"23978ywe0fdi8h309u4ju0309je3r90f"
+		},
+		"hookServices": {
+		    "type": "List",
+		    "description": "List of endpoints available to be hooked to by user role",
+		    "mockData": "*"
 		}
 	    },
+
 		"CURRENTSTABLE": "1",
 		"VERSION": {
 			"1": {
@@ -54,31 +52,17 @@
 					"list": {
 					     	"METHOD":"GET",
 					    	"DESCRIPTION":"List Hook",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
-					    	"ROLES": {
-					    	    "BATCH":["ROLE_ADMIN"]
-						},
+					    	"ROLES": {},
 						"REQUEST": {
 						    "permitAll":[]
 						},
 						"RESPONSE": {
-							"permitAll":["id","version","user","name","url","format","service","authentication"]
+							"permitAll":["id","version","user","format","service","authorization"]
 						}
 					},
 					"show": {
 						"METHOD":"GET",
 						"DESCRIPTION":"Show Hooks",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
@@ -92,17 +76,11 @@
 					"create":{
 						"METHOD":"PUT",
 						"DESCRIPTION":"Create Hook",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-						    "permitAll":["name","url","format","service","authentication"]
+						    "permitAll":["name","url","format","service","authorization"]
 						},
 						"RESPONSE": {
 							"permitAll":["id","version"]
@@ -111,17 +89,11 @@
 					"update": {
 						"METHOD":"POST",
 						"DESCRIPTION":"Update Hook",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						     "ROLE_ANONYMOUS": "20",
-						     "ROLE_USER": "100",
-						     "ROLE_ADMIN" : "*"
-						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
 						"REQUEST": {
-						    "permitAll":["id","version","name","url","format","service","authentication"]
+						    "permitAll":["id","version","name","url","format","service","authorization"]
 						},
 						"RESPONSE": {
 						    "permitAll":["id","version"]
@@ -130,12 +102,6 @@
 					"delete":{
 						"METHOD":"DELETE",
 						"DESCRIPTION":"Delete Hook",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						     "ROLE_ANONYMOUS": "20",
-						     "ROLE_USER": "100",
-						     "ROLE_ADMIN" : "*"
-						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
@@ -149,12 +115,6 @@
 					"reset":{
 						"METHOD":"GET",
 						"DESCRIPTION":"Reset Hook attempts",
-						"UPDATECACHE": false,
-						"RATELIMIT": {
-						     "ROLE_ANONYMOUS": "20",
-						     "ROLE_USER": "100",
-						     "ROLE_ADMIN" : "*"
-						},
 					    	"ROLES": {
 					    	    "BATCH":["ROLE_ADMIN"]
 						},
@@ -164,6 +124,17 @@
 						"RESPONSE": {
 						    "permitAll":["id"]
 						}
+					},
+					"getHookServices":{
+					    "METHOD":"GET",
+					    "DESCRIPTION":"get list of hook services",
+					    "ROLES": {},
+					    "REQUEST": {
+						"permitAll":[]
+					    },
+					    "RESPONSE": {
+						"permitAll":["hookServices"]
+					    }
 					}
 				}
 			}

@@ -21,10 +21,10 @@
 			},
 			"companyId": {
 				"key": "FKEY",
-				"reference": "Company",
+				"reference": "company",
 				"type": "Long",
 				"description": "ID for Company",
-				"mockData": "36"
+				"mockData": ""
 			}
 		},
 		"CURRENTSTABLE": "1",
@@ -36,12 +36,6 @@
 					"show": {
 						"METHOD": "GET",
 						"DESCRIPTION": "Description for show",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -56,12 +50,6 @@
 					"create": {
 						"METHOD": "POST",
 						"DESCRIPTION": "Description for create",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
@@ -76,12 +64,6 @@
 					"delete": {
 						"METHOD": "DELETE",
 						"DESCRIPTION": "Description for delete",
-						"UPDATECACHE": true,
-						"RATELIMIT": {
-						      	"ROLE_ANONYMOUS": "20",
-						      	"ROLE_USER": "100",
-						      	"ROLE_ADMIN" : "*"
-						},
 						"ROLES": {
 							"BATCH": ["ROLE_ADMIN"],
 							"CHAIN": ["ROLE_ADMIN"]
